@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/azwc7142/public_html/kopidripsidikalang.com/
+    - /bin/cp -R public/. "$DEPLOYPATH"
+    - /bin/cp deploy/cpanel-index.php "$DEPLOYPATH/index.php"
