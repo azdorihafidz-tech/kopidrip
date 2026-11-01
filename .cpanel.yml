@@ -4,3 +4,5 @@ deployment:
     - export DEPLOYPATH=/home/azwc7142/public_html/kopidripsidikalang.com/
     - /bin/cp -R public/. "$DEPLOYPATH"
     - /bin/cp deploy/cpanel-index.php "$DEPLOYPATH/index.php"
+    - if [ -L "$DEPLOYPATH/storage" ]; then /bin/rm "$DEPLOYPATH/storage"; fi
+    - if [ ! -e "$DEPLOYPATH/storage" ]; then /bin/ln -s /home/azwc7142/repositories/kopidrip/storage/app/public "$DEPLOYPATH/storage"; else echo "A real storage directory already exists; inspect it before deploying." >&2; exit 1; fi
