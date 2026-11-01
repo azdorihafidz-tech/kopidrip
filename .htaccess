@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Requests that explicitly target public/ are already in the web root.
+    RewriteRule ^public/ - [L]
+
+    # The local front controller is the only project-root PHP entry point.
+    RewriteRule ^index\.php$ - [L]
+
+    # Serve static files from Laravel's public directory without exposing the project root.
+    RewriteRule ^(.+\.(?:avif|css|gif|ico|jpe?g|js|png|svg|webp|woff2?|ttf|eot|txt))$ public/$1 [NC,L]
+
+    # Route application requests through the local front controller.
+    RewriteRule ^ index.php [L]
+</IfModule>

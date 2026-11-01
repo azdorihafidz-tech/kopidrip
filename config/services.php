@@ -18,6 +18,14 @@ return [
         'token' => env('POSTMARK_TOKEN'),
     ],
 
+    'manual_payments' => [
+        'webhook_secret' => env('MANUAL_PAYMENT_WEBHOOK_SECRET'),
+    ],
+
+    'google_analytics' => [
+        'measurement_id' => env('GA4_MEASUREMENT_ID'),
+    ],
+
     'ses' => [
         'key' => env('AWS_ACCESS_KEY_ID'),
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
