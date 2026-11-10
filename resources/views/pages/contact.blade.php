@@ -30,14 +30,14 @@
         <div class="contact-form-wrap">
             <h2 class="font-display text-3xl">Kirim pertanyaan</h2>
             @if (session('contact-status'))<p class="form-notice mt-5" role="status">{{ session('contact-status') }}</p>@endif
-            <p class="mt-3 text-sm leading-6 text-muted">Form ini memeriksa isian, tetapi pesan belum disimpan atau dikirim. Jangan kirim informasi sensitif.</p>
+            <p class="mt-3 text-sm leading-6 text-muted">Pesan akan tersimpan di admin agar tim Kopi Drip dapat menindaklanjutinya. Jangan kirim informasi pembayaran atau kata sandi.</p>
             <form class="mt-7 space-y-5" action="{{ route('contact.store') }}" method="post">
                 @csrf
                 <div><label class="form-label" for="name">Nama</label><input class="form-input" id="name" name="name" value="{{ old('name') }}" autocomplete="name" required maxlength="120" @error('name') aria-invalid="true" aria-describedby="name-error" @enderror>@error('name')<p class="form-error" id="name-error">{{ $message }}</p>@enderror</div>
                 <div><label class="form-label" for="email">Email</label><input class="form-input" id="email" name="email" type="email" value="{{ old('email') }}" autocomplete="email" required maxlength="255" @error('email') aria-invalid="true" aria-describedby="email-error" @enderror>@error('email')<p class="form-error" id="email-error">{{ $message }}</p>@enderror</div>
                 <div><label class="form-label" for="subject">Subjek</label><input class="form-input" id="subject" name="subject" value="{{ old('subject') }}" required maxlength="150" @error('subject') aria-invalid="true" aria-describedby="subject-error" @enderror>@error('subject')<p class="form-error" id="subject-error">{{ $message }}</p>@enderror</div>
                 <div><label class="form-label" for="message">Pesan</label><textarea class="form-input min-h-36 resize-y" id="message" name="message" required maxlength="3000" @error('message') aria-invalid="true" aria-describedby="message-error" @enderror>{{ old('message') }}</textarea>@error('message')<p class="form-error" id="message-error">{{ $message }}</p>@enderror</div>
-                <button class="button button-dark w-full justify-center sm:w-auto" type="submit">Periksa formulir <span aria-hidden="true">↗</span></button>
+                <button class="button button-dark w-full justify-center sm:w-auto" type="submit">Kirim pesan <span aria-hidden="true">↗</span></button>
             </form>
         </div>
     </div></section>

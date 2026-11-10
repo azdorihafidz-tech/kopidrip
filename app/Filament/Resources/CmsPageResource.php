@@ -51,7 +51,7 @@ class CmsPageResource extends CmsResource
                 ->rules([
                     'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/',
                     function (string $attribute, mixed $value, \Closure $fail): void {
-                        if (in_array($value, ['admin', 'products', 'menu', 'gallery', 'journal', 'sitemap-xml', 'robots-txt', 'storage', 'up'], true)) {
+                        if (in_array($value, ['admin', 'products', 'menu', 'gallery', 'journal', 'faq', 'promotions', 'sitemap-xml', 'robots-txt', 'storage', 'up'], true)) {
                             $fail('Slug ini digunakan oleh fitur website. Pilih slug lain.');
                         }
                     },

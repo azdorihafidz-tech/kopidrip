@@ -25,6 +25,10 @@ class RoleSeeder extends Seeder
             'orders.manage',
             'customers.manage',
             'analytics.view',
+            'contact-messages.manage',
+            'faq.manage',
+            'testimonials.manage',
+            'promotions.manage',
         ];
 
         foreach ($permissions as $permission) {
@@ -37,7 +41,7 @@ class RoleSeeder extends Seeder
 
         $superAdmin->givePermissionTo($permissions);
         $admin->givePermissionTo($permissions);
-        $editor->givePermissionTo(['homepage.manage', 'pages.manage', 'navigation.manage', 'gallery.manage', 'journal.manage']);
+        $editor->givePermissionTo(['homepage.manage', 'pages.manage', 'navigation.manage', 'gallery.manage', 'journal.manage', 'faq.manage', 'testimonials.manage', 'promotions.manage']);
         $editor->revokePermissionTo('analytics.view');
 
         app(PermissionRegistrar::class)->forgetCachedPermissions();

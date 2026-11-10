@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\CmsPage;
+use App\Models\Faq;
 use App\Models\GalleryItem;
 use App\Models\HomepageSection;
 use App\Models\JournalPost;
 use App\Models\MenuCategory;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\Promotion;
+use App\Models\Testimonial;
 use App\Models\WebsiteSetting;
 use App\Services\PageContentSanitizer;
 use Illuminate\Http\Response;
@@ -23,6 +26,9 @@ class PublicPageController extends Controller
             'featuredProducts' => Product::published()->with(['images', 'primaryImage', 'category'])->where('featured', true)->orderBy('name')->limit(3)->get(),
             'journalPosts' => JournalPost::published()->latest('published_at')->limit(3)->get(),
             'galleryItems' => GalleryItem::published()->orderBy('sort_order')->limit(4)->get(),
+            'featuredPromotion' => Promotion::available()->first(),
+            'testimonials' => Testimonial::published()->limit(3)->get(),
+            'faqs' => Faq::published()->limit(5)->get(),
         ]);
     }
 
@@ -82,6 +88,11 @@ class PublicPageController extends Controller
         ]);
     }
 
+    public function faq(): View
+    {
+        return view('pages.faq', ['faqs' => Faq::published()->paginate(20)]);
+    }
+
     public function journal(): View
     {
         return view('pages.journal.index', [
@@ -131,6 +142,8 @@ class PublicPageController extends Controller
             route('products.index'),
             route('menu'),
             route('gallery'),
+            route('faq'),
+            route('promotions.index'),
             route('journal.index'),
         ])->map(fn (string $url) => ['url' => $url, 'last_modified' => null]);
 
@@ -149,8 +162,13 @@ class PublicPageController extends Controller
             'last_modified' => $post->updated_at,
         ]);
 
+        $promotionUrls = Promotion::available()->get(['slug', 'updated_at'])->map(fn (Promotion $promotion) => [
+            'url' => route('promotions.show', $promotion->slug),
+            'last_modified' => $promotion->updated_at,
+        ]);
+
         return response()->view('seo.sitemap', [
-            'urls' => $urls->concat($pageUrls)->concat($productUrls)->concat($journalUrls),
+            'urls' => $urls->concat($pageUrls)->concat($productUrls)->concat($journalUrls)->concat($promotionUrls),
         ])->header('Content-Type', 'application/xml; charset=UTF-8');
     }
 

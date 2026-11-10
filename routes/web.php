@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ManualPaymentWebhookController;
+use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\PublicPageController;
 use App\Http\Middleware\ShareWebsiteSettings;
 use App\Services\CartService;
@@ -36,6 +37,9 @@ Route::middleware(ShareWebsiteSettings::class)->controller(PublicPageController:
     Route::get('/products/{slug}', 'product')->where('slug', '[A-Za-z0-9\-]+')->name('products.show');
     Route::get('/menu', 'menu')->name('menu');
     Route::get('/gallery', 'gallery')->name('gallery');
+    Route::get('/faq', 'faq')->name('faq');
+    Route::get('/promotions', [PromotionController::class, 'index'])->name('promotions.index');
+    Route::get('/promotions/{slug}', [PromotionController::class, 'show'])->where('slug', '[A-Za-z0-9\\-]+')->name('promotions.show');
     Route::get('/journal', 'journal')->name('journal.index');
     Route::get('/journal/{slug}', 'journalPost')->where('slug', '[A-Za-z0-9\-]+')->name('journal.show');
     Route::get('/location', 'location')->name('location');
@@ -50,5 +54,5 @@ Route::get('/sitemap.xml', [PublicPageController::class, 'sitemap'])->name('site
 
 Route::get('/{slug}', [PublicPageController::class, 'cmsPage'])
     ->middleware(ShareWebsiteSettings::class)
-    ->where('slug', '^(?!admin$|products$|journal$|menu$|gallery$|storage$|up$)[a-z0-9]+(?:-[a-z0-9]+)*$')
+    ->where('slug', '^(?!admin$|products$|journal$|menu$|gallery$|faq$|promotions$|storage$|up$)[a-z0-9]+(?:-[a-z0-9]+)*$')
     ->name('cms-pages.show');

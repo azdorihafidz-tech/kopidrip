@@ -26,6 +26,8 @@
                 <li><a href="{{ route('products.index') }}">Produk</a></li>
                 <li><a href="{{ route('menu') }}">Menu</a></li>
                 <li><a href="{{ route('journal.index') }}">Jurnal</a></li>
+                <li><a href="{{ route('promotions.index') }}">Promo</a></li>
+                <li><a href="{{ route('faq') }}">FAQ</a></li>
             </ul>
         </div>
 

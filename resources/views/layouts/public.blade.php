@@ -66,5 +66,12 @@
     @endif
     <main id="main-content">@yield('content')</main>
     <x-public.footer :brand-name="$brandName" :website-settings="$websiteSettings" />
+    @php($floatingWhatsappUrl = $websiteSettings->whatsappUrl('Halo Kopi Drip, saya ingin bertanya.'))
+    @if ($floatingWhatsappUrl)
+        <a class="whatsapp-float" href="{{ $floatingWhatsappUrl }}" target="_blank" rel="noopener noreferrer" aria-label="Chat dengan Kopi Drip melalui WhatsApp">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" class="size-6"><path d="M20 11.7a8.1 8.1 0 0 1-11.95 7.1L4 20l1.25-3.82A8.1 8.1 0 1 1 20 11.7Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.9 8.5c.2-.45.4-.46.7-.47h.5c.17 0 .35.06.45.34l.68 1.63c.08.2.04.38-.1.55l-.5.62c-.15.18-.3.33-.13.62.17.29.75 1.24 1.63 2 .98.86 1.8 1.12 2.12 1.25.27.12.44.1.61-.1l.75-.88c.18-.21.36-.25.6-.15l1.52.73c.23.11.39.17.45.27.06.1.06.57-.14 1.1-.2.52-1.14 1.02-1.57 1.06-.4.04-.9.06-1.46-.12-.34-.11-.78-.25-1.34-.5-2.36-1.03-3.9-3.47-4.02-3.63-.12-.16-.95-1.26-.95-2.4 0-1.14.6-1.7.8-1.92Z" fill="currentColor"/></svg>
+            <span>Chat WhatsApp</span>
+        </a>
+    @endif
 </body>
 </html>

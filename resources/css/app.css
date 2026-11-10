@@ -130,6 +130,7 @@ a { text-underline-offset: 0.2em; }
     .footer-heading { @apply mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-[#d5c8a7]; }
     .footer-links { @apply space-y-3 text-sm leading-6 text-white/65; }
     .footer-links a { @apply transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white; }
+    .whatsapp-float { @apply fixed bottom-4 right-4 z-50 inline-flex min-h-14 items-center gap-3 rounded-full bg-[#128c7e] px-5 text-sm font-semibold text-white shadow-xl transition hover:bg-[#0d7066] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#128c7e]; }
 }
 
 @media (prefers-reduced-motion: reduce) {

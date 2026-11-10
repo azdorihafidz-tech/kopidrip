@@ -7,6 +7,7 @@
 @section('seo_robots', $product->is_demo ? 'noindex,nofollow' : 'index,follow')
 
 @section('content')
+    @php($productWhatsappUrl = ! $product->is_demo ? $websiteSettings->whatsappUrl('Halo Kopi Drip, saya tertarik dengan '.$product->name.': '.route('products.show', $product->slug)) : null)
     <section class="section-space">
         <div class="site-container">
             <a class="text-link mb-8 inline-flex" href="{{ route('products.index') }}"><span aria-hidden="true">←</span> Semua produk</a>
@@ -78,6 +79,9 @@
                         </section>
                     @endif
 
+                    @if ($productWhatsappUrl && $product->price === null && $product->variants->isEmpty())
+                        <a class="button button-whatsapp mt-8" href="{{ $productWhatsappUrl }}" target="_blank" rel="noopener noreferrer">Tanyakan produk ini via WhatsApp <span aria-hidden="true">↗</span></a>
+                    @endif
                     @if (! $product->is_demo && ($product->price !== null || $product->variants->where('is_active', true)->isNotEmpty()) && $product->status === 'published')
                         <form class="mt-8 space-y-4" method="POST" action="{{ route('cart.store') }}">
                             @csrf
@@ -99,6 +103,9 @@
                             @if ($product->variants->where('is_active', true)->isNotEmpty())<input type="hidden" name="quantity" value="1">@endif
                             <button class="button button-dark" type="submit" @if ($product->variants->isEmpty() && $product->stock < 1) disabled @endif>Tambah ke keranjang</button>
                         </form>
+                        @if ($productWhatsappUrl)
+                            <a class="button button-whatsapp mt-4" href="{{ $productWhatsappUrl }}" target="_blank" rel="noopener noreferrer">Tanya produk ini via WhatsApp <span aria-hidden="true">↗</span></a>
+                        @endif
                     @else
                         <a class="button button-dark mt-9" href="{{ route('contact') }}">Tanyakan produk ini <span aria-hidden="true">↗</span></a>
                     @endif

@@ -20,6 +20,14 @@ final class CmsPermissions
 
     public const JOURNAL = 'journal.manage';
 
+    public const CONTACT_MESSAGES = 'contact-messages.manage';
+
+    public const FAQ = 'faq.manage';
+
+    public const TESTIMONIALS = 'testimonials.manage';
+
+    public const PROMOTIONS = 'promotions.manage';
+
     public static function allows(string $permission): bool
     {
         return auth()->user()?->can($permission) ?? false;
