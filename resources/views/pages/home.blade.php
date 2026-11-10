@@ -7,7 +7,7 @@
     @php($brandName = filled($websiteSettings->business_name) ? $websiteSettings->business_name : config('app.name', 'Kopi Drip Sidikalang'))
     @php($ctaSection = $homeSections->get('cta'))
     @foreach ($homeSections->except('cta') as $key => $section)
-        @php($partial = ['coffee_shop' => 'experience', 'our_story' => 'story', 'cta' => 'call-to-action'][$key] ?? $key)
+        @php($partial = ['coffee_shop' => 'experience', 'our_story' => 'story', 'location' => 'visit', 'cta' => 'call-to-action'][$key] ?? $key)
         @includeIf('pages.home.sections.'.$partial)
     @endforeach
     @include('pages.home.sections.promotion-highlight')

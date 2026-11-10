@@ -13,14 +13,16 @@
             </div>
             <div class="home-hero-art">
                 @php($heroImage = $section->image_path ?: $websiteSettings->homepage_hero_image)
+                <span class="home-hero-backdrop" aria-hidden="true"></span>
                 @if ($heroImage)
                     <img class="home-hero-photo" src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($heroImage) }}" alt="{{ $section->image_alt ?: 'Gambar utama '.$brandName }}" width="1145" height="1432" fetchpriority="high">
                 @else
                     <img class="home-hero-photo" src="{{ asset('images/coffee-editorial.webp') }}" alt="Ilustrasi editorial secangkir kopi, bukan dokumentasi produk atau gerai {{ $brandName }}." width="1145" height="1432" fetchpriority="high">
-                    <span class="home-hero-caption">Visual editorial tentang kopi</span>
                 @endif
-                <span class="home-hero-art-note" aria-hidden="true">Kopi Drip <span>·</span> Sidikalang</span>
             </div>
+        </div>
+        <div class="home-hero-bottom" aria-label="Tentang Kopi Drip">
+            <span>Kopi</span><span>Cara seduh</span><span>Jurnal</span><span>Sidikalang</span>
         </div>
     </section>
 @endif
