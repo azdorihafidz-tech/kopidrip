@@ -60,7 +60,6 @@ return new class extends Migration
         });
 
         $this->grantAdminPermissions();
-        $this->addNavigationLinks();
     }
 
     private function grantAdminPermissions(): void
@@ -109,31 +108,6 @@ return new class extends Migration
                         'role_id' => $editorRoleId,
                     ]);
                 }
-            }
-        }
-    }
-
-    private function addNavigationLinks(): void
-    {
-        if (! Schema::hasTable('navigation_items')) {
-            return;
-        }
-
-        $order = (int) DB::table('navigation_items')->max('sort_order');
-
-        foreach ([['FAQ', '/faq'], ['Promo', '/promotions']] as [$label, $url]) {
-            if (! DB::table('navigation_items')->where('url', $url)->exists()) {
-                $order += 10;
-                DB::table('navigation_items')->insert([
-                    'label' => $label,
-                    'url' => $url,
-                    'sort_order' => $order,
-                    'is_active' => true,
-                    'open_new_tab' => false,
-                    'is_cta' => false,
-                    'created_at' => now(),
-                    'updated_at' => now(),
-                ]);
             }
         }
     }

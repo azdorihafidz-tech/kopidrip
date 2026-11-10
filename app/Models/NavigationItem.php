@@ -38,8 +38,6 @@ class NavigationItem extends Model
             ['label' => 'Menu', 'url' => '/menu'],
             ['label' => 'Jurnal', 'url' => '/journal'],
             ['label' => 'Galeri', 'url' => '/gallery'],
-            ['label' => 'Promo', 'url' => '/promotions'],
-            ['label' => 'FAQ', 'url' => '/faq'],
             ['label' => 'Kontak', 'url' => '/contact'],
             ['label' => 'Belanja kopi', 'url' => '/products', 'is_cta' => true],
         ])->map(fn (array $attributes) => new static($attributes));

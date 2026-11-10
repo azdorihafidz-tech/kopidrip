@@ -152,8 +152,6 @@ class DemoContentSeeder extends Seeder
             ['label' => 'Menu', 'url' => '/menu', 'sort_order' => 50],
             ['label' => 'Jurnal', 'url' => '/journal', 'sort_order' => 60],
             ['label' => 'Galeri', 'url' => '/gallery', 'sort_order' => 70],
-            ['label' => 'Promo', 'url' => '/promotions', 'sort_order' => 75],
-            ['label' => 'FAQ', 'url' => '/faq', 'sort_order' => 78],
             ['label' => 'Kontak', 'url' => '/contact', 'sort_order' => 80],
             ['label' => 'Belanja kopi', 'url' => '/products', 'sort_order' => 90, 'is_cta' => true],
         ];
@@ -170,8 +168,6 @@ class DemoContentSeeder extends Seeder
                 '/journal' => ['Journal'],
                 '/products' => ['Produk', 'Products', 'DEMO — Order Now'],
                 '/gallery' => ['Gallery'],
-                '/promotions' => ['Promosi', 'Promotions'],
-                '/faq' => ['Pertanyaan umum', 'FAQs'],
                 '/contact' => ['Contact'],
                 '/' => ['Home'],
                 default => [],
