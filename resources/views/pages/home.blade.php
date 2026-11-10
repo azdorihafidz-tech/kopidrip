@@ -6,9 +6,11 @@
 @section('content')
     @php($brandName = filled($websiteSettings->business_name) ? $websiteSettings->business_name : config('app.name', 'Kopi Drip Sidikalang'))
     @php($ctaSection = $homeSections->get('cta'))
-    @foreach ($homeSections->except('cta') as $key => $section)
-        @php($partial = ['coffee_shop' => 'experience', 'our_story' => 'story', 'location' => 'visit', 'cta' => 'call-to-action'][$key] ?? $key)
-        @includeIf('pages.home.sections.'.$partial)
+    @foreach ($homeSections as $key => $section)
+        @if ($key !== 'cta')
+            @php($partial = ['coffee_shop' => 'experience', 'our_story' => 'story', 'location' => 'visit'][$key] ?? $key)
+            @includeIf('pages.home.sections.'.$partial)
+        @endif
     @endforeach
     @include('pages.home.sections.promotion-highlight')
     @include('pages.home.sections.testimonials')
