@@ -16,8 +16,8 @@
                 @if ($heroImage)
                     <img class="home-hero-photo" src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($heroImage) }}" alt="{{ $section->image_alt ?: 'Gambar utama '.$brandName }}" width="1145" height="1432" fetchpriority="high">
                 @else
-                    <img class="home-hero-photo" src="{{ asset('images/coffee-editorial.webp') }}" alt="Foto editorial sementara: secangkir kopi dan kemasan tanpa merek, bukan foto produk {{ $brandName }}." width="1145" height="1432" fetchpriority="high">
-                    <span class="home-hero-caption">Visual editorial sementara · bukan foto produk atau gerai</span>
+                    <img class="home-hero-photo" src="{{ asset('images/coffee-editorial.webp') }}" alt="Ilustrasi editorial secangkir kopi, bukan dokumentasi produk atau gerai {{ $brandName }}." width="1145" height="1432" fetchpriority="high">
+                    <span class="home-hero-caption">Visual editorial tentang kopi</span>
                 @endif
                 <span class="home-hero-art-note" aria-hidden="true">Kopi Drip <span>·</span> Sidikalang</span>
             </div>

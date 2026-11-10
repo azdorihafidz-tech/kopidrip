@@ -79,7 +79,7 @@ class ProductResource extends CmsResource
             Select::make('status')->label('Status')->options(['draft' => 'Draft', 'published' => 'Terbit'])->default('draft')->required(),
             DateTimePicker::make('published_at')->label('Waktu terbit')->seconds(false),
             Toggle::make('featured')->label('Tampilkan di beranda'),
-            Toggle::make('is_demo')->label('Konten demo')->helperText('Harga dan stok contoh; produk demo tidak dapat dipesan.'),
+            Toggle::make('is_demo')->label('Belum dikonfirmasi')->helperText('Jika aktif, produk tidak ditampilkan di katalog publik dan tidak dapat dipesan.'),
             TextInput::make('seo_title')->label('Judul SEO')->maxLength(255),
             Textarea::make('seo_description')->label('Deskripsi SEO')->rows(3)->maxLength(320),
             CmsUpload::image('og_image', 'products/og')->label('Gambar Open Graph'),
@@ -96,7 +96,7 @@ class ProductResource extends CmsResource
             TextColumn::make('price')->label('Harga')->money('IDR', locale: 'id')->sortable(),
             TextColumn::make('stock')->label('Stok')->sortable(),
             TextColumn::make('status')->label('Status')->badge()->color(fn (string $state): string => $state === 'published' ? 'success' : 'gray'),
-            TextColumn::make('is_demo')->label('Jenis')->badge()->formatStateUsing(fn (bool $state): string => $state ? 'DEMO' : 'Produk')->color(fn (bool $state): string => $state ? 'warning' : 'gray'),
+            TextColumn::make('is_demo')->label('Kesiapan')->badge()->formatStateUsing(fn (bool $state): string => $state ? 'Perlu verifikasi' : 'Siap tayang')->color(fn (bool $state): string => $state ? 'warning' : 'success'),
             TextColumn::make('updated_at')->label('Diperbarui')->dateTime()->sortable(),
         ])->filters([
             SelectFilter::make('product_category_id')->relationship('category', 'name')->label('Kategori'),

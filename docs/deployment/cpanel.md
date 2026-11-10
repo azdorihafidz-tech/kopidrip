@@ -1,13 +1,20 @@
-# Catatan deployment cPanel
+# Deployment cPanel Kopi Drip
 
-Belum ada deployment production yang dilakukan. Sebelum membuat `.cpanel.yml`, project owner/hosting perlu menetapkan:
+## Lokasi hosting
 
-- direktori checkout Git Version Control;
-- direktori release dan document root domain;
-- lokasi `public` Laravel yang dapat ditetapkan sebagai document root;
-- versi PHP dan ekstensi yang tersedia;
-- lokasi Composer/Node atau strategi asset build;
-- prosedur backup dan waktu migration;
-- kredensial database, `APP_KEY`, dan secret webhook yang disimpan di environment hosting.
+- Repository cPanel: `/home/azwc7142/repositories/kopidrip`
+- Document root: `/home/azwc7142/public_html/kopidripsidikalang.com`
+- Branch GitHub: `master`
+- Deploy dijalankan melalui `.cpanel.yml` dan `deploy/cpanel-deploy.sh`.
 
-Jangan menjalankan `php artisan migrate --seed` pada production karena seeder menambahkan konten demo. Jangan menaruh `.env`, `vendor`, atau direktori source Laravel di dalam area publik yang dapat diakses web. Sesudah detail target disetujui, `.cpanel.yml` harus hanya berisi perintah deploy yang cocok dengan path akun tersebut.
+Skrip deploy menyalin file publik Laravel dan gambar editorial ke document root. Source Laravel tetap berada di direktori repository di luar document root.
+
+## Perubahan database
+
+Untuk perubahan yang menambah migration, lakukan backup database terlebih dahulu. Hosting ini tidak menyediakan terminal atau Composer, jadi migration dijalankan memakai helper PHP sementara di browser. Helper menghapus dirinya sesudah dijalankan; jangan menyimpan helper itu di root website atau membagikan URL-nya.
+
+Jangan jalankan seeder pada database production. Seeder dipakai saat membuat database baru di lokal; migration production hanya memperbarui schema dan konten awal yang disiapkan untuk rilis.
+
+## Environment
+
+Simpan `.env`, `APP_KEY`, kredensial database, dan secret hanya pada server. Jangan menyalin file environment lokal ke hosting atau menaruhnya di document root.

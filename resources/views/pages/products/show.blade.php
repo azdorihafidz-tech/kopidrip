@@ -31,15 +31,11 @@
                 <div class="lg:py-10">
                     <p class="eyebrow">Kopi Drip · Produk</p>
                     <h1 class="mt-4 font-display text-4xl leading-tight sm:text-5xl">{{ $product->name }}</h1>
-                    @if ($product->is_demo)
-                        <p class="mt-4 border-l-4 border-amber-500 bg-amber-50 p-4 text-sm leading-6 text-amber-950"><strong>Konten demonstrasi.</strong> Nama, spesifikasi, harga, dan stok ini hanya contoh dan bukan penawaran untuk dibeli.</p>
-                    @endif
                     <p class="mt-5 text-lg font-medium">
-                        @if ($product->is_demo)<span class="mb-1 block text-xs font-semibold uppercase tracking-wider text-amber-800">Harga demo</span>@endif
                         @if ($product->price !== null)
                             Rp {{ number_format((float) $product->price, 0, ',', '.') }}
                         @else
-                            Harga belum tersedia
+                            Hubungi kami untuk informasi harga
                         @endif
                         @if ($product->compare_price !== null && $product->price !== null && (float) $product->compare_price > (float) $product->price)
                             <span class="ml-2 text-sm text-muted line-through">Rp {{ number_format((float) $product->compare_price, 0, ',', '.') }}</span>

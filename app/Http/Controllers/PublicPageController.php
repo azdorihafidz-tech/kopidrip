@@ -23,8 +23,8 @@ class PublicPageController extends Controller
     {
         return view('pages.home', [
             'homeSections' => HomepageSection::visible()->get()->keyBy('section_key'),
-            'featuredProducts' => Product::published()->with(['images', 'primaryImage', 'category'])->where('featured', true)->orderBy('name')->limit(3)->get(),
-            'journalPosts' => JournalPost::published()->latest('published_at')->limit(3)->get(),
+            'featuredProducts' => Product::published()->where('is_demo', false)->with(['images', 'primaryImage', 'category'])->where('featured', true)->orderBy('name')->limit(3)->get(),
+            'journalPosts' => JournalPost::published()->where('is_demo', false)->latest('published_at')->limit(3)->get(),
             'galleryItems' => GalleryItem::published()->orderBy('sort_order')->limit(4)->get(),
             'featuredPromotion' => Promotion::available()->first(),
             'testimonials' => Testimonial::published()->limit(3)->get(),
@@ -39,20 +39,20 @@ class PublicPageController extends Controller
 
     public function coffee(): View
     {
-        return $this->renderCmsPage('coffee', ['products' => Product::published()->with(['images', 'primaryImage', 'category'])->orderBy('name')->limit(3)->get()]);
+        return $this->renderCmsPage('coffee', ['products' => Product::published()->where('is_demo', false)->with(['images', 'primaryImage', 'category'])->orderBy('name')->limit(3)->get()]);
     }
 
     public function products(): View
     {
         return view('pages.products.index', [
-            'products' => Product::published()->with(['images', 'primaryImage', 'category'])->orderBy('name')->paginate(12),
+            'products' => Product::published()->where('is_demo', false)->with(['images', 'primaryImage', 'category'])->orderBy('name')->paginate(12),
             'categories' => ProductCategory::active()->get(),
         ]);
     }
 
     public function product(string $slug): View
     {
-        $product = Product::published()->with(['images', 'primaryImage', 'variants' => fn ($query) => $query->where('is_active', true), 'category'])
+        $product = Product::published()->where('is_demo', false)->with(['images', 'primaryImage', 'variants' => fn ($query) => $query->where('is_active', true), 'category'])
             ->where('slug', $slug)->firstOrFail();
 
         return view('pages.products.show', compact('product'));
@@ -65,7 +65,7 @@ class PublicPageController extends Controller
         return view('pages.products.index', [
             'category' => $category,
             'categories' => ProductCategory::active()->get(),
-            'products' => $category->products()->published()->with(['images', 'primaryImage', 'category'])->orderBy('name')->paginate(12),
+            'products' => $category->products()->published()->where('is_demo', false)->with(['images', 'primaryImage', 'category'])->orderBy('name')->paginate(12),
         ]);
     }
 
@@ -96,13 +96,13 @@ class PublicPageController extends Controller
     public function journal(): View
     {
         return view('pages.journal.index', [
-            'posts' => JournalPost::published()->latest('published_at')->paginate(9),
+            'posts' => JournalPost::published()->where('is_demo', false)->latest('published_at')->paginate(9),
         ]);
     }
 
     public function journalPost(string $slug): View
     {
-        $post = JournalPost::published()->where('slug', $slug)->firstOrFail();
+        $post = JournalPost::published()->where('is_demo', false)->where('slug', $slug)->firstOrFail();
 
         return view('pages.journal.show', [
             'post' => $post,
@@ -140,10 +140,8 @@ class PublicPageController extends Controller
         $urls = collect([
             route('home'),
             route('products.index'),
-            route('menu'),
             route('gallery'),
             route('faq'),
-            route('promotions.index'),
             route('journal.index'),
         ])->map(fn (string $url) => ['url' => $url, 'last_modified' => null]);
 

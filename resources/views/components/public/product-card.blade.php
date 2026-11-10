@@ -12,16 +12,12 @@
     <div class="flex items-start justify-between gap-4 pt-4">
         <div>
             <h3 class="font-display text-xl leading-snug"><a class="hover:text-moss" href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a></h3>
-            @if ($product->is_demo)
-                <span class="mt-2 inline-flex rounded-full bg-amber-100 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-amber-950">DEMO — bukan penawaran</span>
-            @endif
             @if (filled($product->short_description))
                 <p class="mt-2 line-clamp-2 text-sm leading-6 text-muted">{{ $product->short_description }}</p>
             @endif
         </div>
         <div class="shrink-0 text-right">
-            @if ($product->is_demo)<span class="block text-[10px] font-semibold uppercase tracking-wider text-amber-800">Harga demo</span>@endif
-            <p class="text-sm font-medium">{{ $product->price !== null ? 'Rp '.number_format((float) $product->price, 0, ',', '.') : 'Harga belum tersedia' }}</p>
+            <p class="text-sm font-medium">{{ $product->price !== null ? 'Rp '.number_format((float) $product->price, 0, ',', '.') : 'Hubungi kami untuk informasi' }}</p>
         </div>
     </div>
 </article>

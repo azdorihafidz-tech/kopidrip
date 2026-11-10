@@ -54,9 +54,6 @@
 </head>
 <body class="min-h-screen bg-paper font-sans text-ink antialiased">
     <a class="skip-link" href="#main-content">Lewati ke konten</a>
-    @if ($websiteSettings->site_is_demo)
-        <p class="bg-amber-100 px-4 py-2 text-center text-xs font-semibold tracking-wide text-amber-950">DEMO CONTENT — REPLACE BEFORE PRODUCTION</p>
-    @endif
     <x-public.header :brand-name="$brandName" :website-settings="$websiteSettings" />
     @if (session('status'))
         <div role="status" class="site-container py-3 text-sm font-medium text-green-800">{{ session('status') }}</div>

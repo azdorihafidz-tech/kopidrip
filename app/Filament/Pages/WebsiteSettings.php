@@ -69,7 +69,7 @@ class WebsiteSettings extends Page implements HasForms
                             CmsUpload::image('favicon', 'branding/favicons')->label('Favicon')->helperText('Jika kosong, logo Kopi Drip bawaan dipakai sebagai ikon tab browser.'),
                         ]),
                         Section::make('Status website')->schema([
-                            Toggle::make('site_is_demo')->label('Website masih dalam mode demo')->helperText('Mode demo memasang noindex pada semua halaman publik sampai materi resmi siap.'),
+                            Toggle::make('site_is_demo')->label('Sembunyikan website dari mesin pencari')->helperText('Aktifkan saat website sedang disiapkan. Saat aktif, halaman publik tidak akan diindeks.'),
                         ]),
                         Section::make('Warna brand')->description('Warna teks dan tombol harus tetap terbaca pada latar terang.')->columns(3)->schema([
                             ColorPicker::make('primary_color')->label('Primer')->required()->rules([new AccessibleBrandColor]),

@@ -10,4 +10,6 @@ fi
 
 /bin/mkdir -p "$DEPLOYPATH/storage"
 /bin/cp -R "$REPOPATH/public/." "$DEPLOYPATH/"
+/bin/mkdir -p "$DEPLOYPATH/storage/editorial"
+/bin/cp -R "$REPOPATH/storage/app/public/editorial/." "$DEPLOYPATH/storage/editorial/"
 /bin/cp "$REPOPATH/deploy/cpanel-index.php" "$DEPLOYPATH/index.php"

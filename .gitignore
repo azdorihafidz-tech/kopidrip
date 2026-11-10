@@ -8,6 +8,7 @@
 /vendor-production*.zip
 /storage-public-demo*.zip
 /setup-admin-*.php
+/deploy/migrate-once-*.php
 .env
 .env.backup
 .env.production

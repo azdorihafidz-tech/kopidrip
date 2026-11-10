@@ -13,8 +13,6 @@
             </a>
             @if (filled($websiteSettings->tagline))
                 <p class="mt-5 max-w-xs text-sm leading-6 text-white/65">{{ $websiteSettings->tagline }}</p>
-            @elseif ($websiteSettings->site_is_demo)
-                <p class="mt-5 max-w-xs text-sm leading-6 text-white/65">DEMO CONTENT — REPLACE BEFORE PRODUCTION</p>
             @endif
         </div>
 
@@ -24,9 +22,7 @@
                 <li><a href="{{ route('about') }}">Cerita kami</a></li>
                 <li><a href="{{ route('coffee') }}">Kopi & roastery</a></li>
                 <li><a href="{{ route('products.index') }}">Produk</a></li>
-                <li><a href="{{ route('menu') }}">Menu</a></li>
                 <li><a href="{{ route('journal.index') }}">Jurnal</a></li>
-                <li><a href="{{ route('promotions.index') }}">Promo</a></li>
                 <li><a href="{{ route('faq') }}">FAQ</a></li>
             </ul>
         </div>

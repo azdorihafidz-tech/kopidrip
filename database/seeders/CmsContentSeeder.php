@@ -12,16 +12,16 @@ class CmsContentSeeder extends Seeder
     public function run(): void
     {
         $sections = [
-            ['section_key' => 'hero', 'label' => 'Hero', 'eyebrow' => 'Sidikalang · Indonesia', 'title' => 'Kopi Drip', 'subtitle' => 'Sidikalang', 'description' => "Coffee shop, coffee roastery, dan online store.\nSatu ruang untuk mengenal Kopi Drip—mulai dari kopi, cerita, hingga pilihan yang tersedia.", 'button_text' => 'Jelajahi produk', 'button_url' => '/products', 'secondary_button_text' => 'Tentang kami', 'secondary_button_url' => '/about'],
-            ['section_key' => 'introduction', 'label' => 'Introduction', 'eyebrow' => 'Selamat datang', 'title' => 'Sebuah ruang untuk kopi.', 'description' => 'Kopi Drip Sidikalang bergerak di ranah coffee shop, coffee roastery, dan online store.', 'button_text' => 'Kenali Kopi Drip', 'button_url' => '/about'],
-            ['section_key' => 'featured_coffee', 'label' => 'Featured coffee', 'eyebrow' => 'Kopi pilihan', 'title' => 'Kenali kopi dari Kopi Drip.', 'description' => 'Detail proses, kategori, dan pilihan kopi akan ditambahkan setelah informasi resmi tersedia.', 'button_text' => 'Jelajahi kopi', 'button_url' => '/coffee'],
-            ['section_key' => 'featured_products', 'label' => 'Featured products', 'eyebrow' => 'Pilihan kopi', 'title' => 'Dari roastery.', 'description' => 'Pilihan produk yang telah dipublikasikan akan hadir di sini.', 'button_text' => 'Semua produk', 'button_url' => '/products'],
-            ['section_key' => 'coffee_shop', 'label' => 'Coffee shop', 'eyebrow' => 'Coffee shop', 'title' => 'Singgah, pilih, nikmati.', 'description' => 'Informasi pengalaman, menu, dan suasana akan diperbarui melalui konten resmi Kopi Drip Sidikalang.', 'button_text' => 'Lihat menu', 'button_url' => '/menu'],
-            ['section_key' => 'our_story', 'label' => 'Our story', 'eyebrow' => 'Tentang kami', 'title' => 'Cerita Kopi Drip Sidikalang akan hadir di sini.', 'button_text' => 'Baca cerita', 'button_url' => '/about', 'secondary_button_text' => 'Jelajahi kopi', 'secondary_button_url' => '/coffee'],
-            ['section_key' => 'gallery', 'label' => 'Gallery', 'eyebrow' => 'Ruang visual', 'title' => 'Kopi Drip, dalam gambar.', 'description' => 'Foto resmi akan ditampilkan setelah tersedia.', 'button_text' => 'Buka galeri', 'button_url' => '/gallery'],
-            ['section_key' => 'journal', 'label' => 'Journal', 'eyebrow' => 'Jurnal', 'title' => 'Catatan seputar kopi.', 'description' => 'Tulisan yang telah dipublikasikan akan muncul di sini.', 'button_text' => 'Semua tulisan', 'button_url' => '/journal'],
-            ['section_key' => 'location', 'label' => 'Location', 'eyebrow' => 'Lokasi & kontak', 'title' => 'Informasi kunjungan akan diperbarui di sini.', 'button_text' => 'Detail lokasi', 'button_url' => '/location'],
-            ['section_key' => 'cta', 'label' => 'Call to action', 'eyebrow' => 'Kopi Drip Sidikalang', 'title' => 'Ada yang ingin ditanyakan?', 'button_text' => 'Hubungi kami', 'button_url' => '/contact'],
+            ['section_key' => 'hero', 'label' => 'Hero', 'eyebrow' => 'Kopi Sidikalang · Indonesia', 'title' => 'Secangkir kopi,', 'subtitle' => 'diracik dengan cerita.', 'description' => 'Kenali kopi, jelajahi cara seduh, dan ikuti kabar terbaru dari Kopi Drip Sidikalang.', 'button_text' => 'Jelajahi kopi', 'button_url' => '/coffee', 'secondary_button_text' => 'Hubungi kami', 'secondary_button_url' => '/contact'],
+            ['section_key' => 'introduction', 'label' => 'Tentang', 'eyebrow' => 'Tentang Kopi Drip', 'title' => 'Ruang untuk menikmati kopi dengan cara Anda.', 'description' => 'Temukan inspirasi seduh, catatan seputar kopi, dan informasi terbaru dari Kopi Drip Sidikalang.', 'button_text' => 'Baca jurnal', 'button_url' => '/journal'],
+            ['section_key' => 'featured_coffee', 'label' => 'Eksplorasi kopi', 'eyebrow' => 'Eksplorasi kopi', 'title' => 'Mulai dari rasa ingin tahu.', 'description' => 'Pelajari biji kopi, sangrai, dan metode seduh. Informasi setiap produk ditampilkan setelah detail resminya tersedia.', 'button_text' => 'Kenali kopi', 'button_url' => '/coffee'],
+            ['section_key' => 'featured_products', 'label' => 'Produk pilihan', 'eyebrow' => 'Pilihan Kopi Drip', 'title' => 'Temukan kopi untuk menemani hari.', 'description' => 'Tanyakan pilihan produk, harga, dan ketersediaan melalui halaman kontak.', 'button_text' => 'Tanyakan produk', 'button_url' => '/contact'],
+            ['section_key' => 'coffee_shop', 'label' => 'Ritual kopi', 'eyebrow' => 'Ritual sehari-hari', 'title' => 'Nikmati kopi dengan ritme sendiri.', 'description' => 'Dari seduhan harian hingga waktu jeda, temukan cara menikmati kopi yang paling Anda sukai.', 'button_text' => 'Hubungi kami', 'button_url' => '/contact'],
+            ['section_key' => 'our_story', 'label' => 'Tentang Kopi Drip', 'eyebrow' => 'Kopi Drip Sidikalang', 'title' => 'Kopi, cerita, dan ruang untuk terus mengeksplorasi.', 'description' => 'Kenali dunia kopi melalui panduan seduh, cerita, dan informasi terbaru dari Kopi Drip Sidikalang.', 'button_text' => 'Baca jurnal', 'button_url' => '/journal', 'secondary_button_text' => 'Hubungi kami', 'secondary_button_url' => '/contact'],
+            ['section_key' => 'gallery', 'label' => 'Galeri editorial', 'eyebrow' => 'Galeri editorial', 'title' => 'Momen di sekitar kopi.', 'description' => 'Lihat visual editorial tentang biji kopi dan cara menyeduh.', 'button_text' => 'Lihat galeri', 'button_url' => '/gallery'],
+            ['section_key' => 'journal', 'label' => 'Jurnal', 'eyebrow' => 'Jurnal', 'title' => 'Catatan untuk penikmat kopi.', 'description' => 'Panduan ringan untuk mengenal rasa dan mengeksplorasi metode seduh.', 'button_text' => 'Semua tulisan', 'button_url' => '/journal'],
+            ['section_key' => 'location', 'label' => 'Kunjungi & hubungi', 'eyebrow' => 'Kunjungi & hubungi', 'title' => 'Cari informasi kunjungan.', 'description' => 'Untuk informasi terbaru tentang kunjungan, silakan hubungi Kopi Drip.', 'button_text' => 'Lihat kontak', 'button_url' => '/contact'],
+            ['section_key' => 'cta', 'label' => 'Hubungi kami', 'eyebrow' => 'Kopi Drip Sidikalang', 'title' => 'Ada yang ingin ditanyakan?', 'description' => 'Hubungi kami untuk bertanya tentang kopi dan informasi terbaru.', 'button_text' => 'Hubungi kami', 'button_url' => '/contact'],
         ];
 
         foreach ($sections as $index => $section) {
@@ -32,10 +32,10 @@ class CmsContentSeeder extends Seeder
         }
 
         $pages = [
-            ['slug' => 'about', 'title' => 'Kopi Drip Sidikalang', 'excerpt' => 'Coffee shop · Coffee roastery · Online store', 'content' => 'Cerita, filosofi, dan perjalanan brand akan disampaikan di sini. Informasi ini menunggu materi resmi dari pemilik.'],
-            ['slug' => 'coffee', 'title' => 'Kenali kopi dari Kopi Drip.', 'excerpt' => 'Halaman ini menjadi rumah bagi informasi kopi dan produk roastery yang telah disiapkan untuk dipublikasikan.', 'content' => 'Detail proses, kategori, dan pilihan kopi akan ditambahkan setelah informasi resmi tersedia.'],
-            ['slug' => 'contact', 'title' => 'Mari terhubung.', 'excerpt' => 'Informasi kontak resmi Kopi Drip Sidikalang ditampilkan berdasarkan data Website Settings.', 'content' => 'Informasi kontak akan muncul setelah diatur pada Website Settings.'],
-            ['slug' => 'location', 'title' => 'Kunjungi Kopi Drip.', 'excerpt' => 'Informasi lokasi dan kunjungan mengikuti data resmi Website Settings.', 'content' => 'Alamat dan jam operasional akan ditampilkan setelah dikonfirmasi pemilik.'],
+            ['slug' => 'about', 'title' => 'Tentang Kopi Drip Sidikalang', 'excerpt' => 'Kopi, cerita, dan inspirasi untuk menikmati seduhan.', 'content' => '<p>Kopi Drip Sidikalang adalah ruang untuk mengenal kopi, mengeksplorasi cara seduh, dan mengikuti kabar terbaru seputar Kopi Drip.</p><p>Temukan catatan dan panduan umum tentang kopi. Informasi spesifik mengenai produk, menu, dan kunjungan ditampilkan setelah dikonfirmasi.</p>'],
+            ['slug' => 'coffee', 'title' => 'Kopi & cara seduh', 'excerpt' => 'Jelajahi pengetahuan dasar tentang kopi dan cara menyeduhnya.', 'content' => '<h2>Mulai mengenal kopi</h2><p>Rasa dalam cangkir dipengaruhi oleh banyak hal, termasuk biji, proses pengolahan, tingkat sangrai, penyimpanan, air, dan metode seduh. Mengubah satu hal dalam satu waktu dapat membantu Anda memahami perbedaannya.</p><h2>Informasi produk</h2><p>Produk, harga, dan ketersediaan akan ditampilkan di katalog setelah detailnya dikonfirmasi.</p>'],
+            ['slug' => 'contact', 'title' => 'Hubungi Kopi Drip', 'excerpt' => 'Kirim pertanyaan melalui formulir kontak atau WhatsApp yang tercantum.', 'content' => '<p>Kirim pesan melalui formulir di halaman ini. Jika nomor WhatsApp resmi telah dicantumkan, Anda juga dapat menghubungi kami lewat WhatsApp.</p>'],
+            ['slug' => 'location', 'title' => 'Informasi kunjungan', 'excerpt' => 'Hubungi kami untuk informasi kunjungan terbaru.', 'content' => '<p>Untuk informasi kunjungan, alamat, dan jam operasional terbaru, silakan kirim pertanyaan melalui halaman kontak.</p>'],
         ];
 
         foreach ($pages as $page) {
@@ -48,8 +48,7 @@ class CmsContentSeeder extends Seeder
         $navigation = [
             ['label' => 'Tentang', 'url' => '/about'],
             ['label' => 'Kopi', 'url' => '/coffee'],
-            ['label' => 'Belanja', 'url' => '/products'],
-            ['label' => 'Menu', 'url' => '/menu'],
+            ['label' => 'Produk', 'url' => '/products'],
             ['label' => 'Jurnal', 'url' => '/journal'],
             ['label' => 'Galeri', 'url' => '/gallery'],
             ['label' => 'Kontak', 'url' => '/contact'],

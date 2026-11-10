@@ -4,7 +4,7 @@
 @section('seo_description', 'Galeri foto resmi Kopi Drip Sidikalang.')
 
 @section('content')
-    <x-public.page-hero eyebrow="Galeri" title="Ruang visual Kopi Drip." description="Foto resmi coffee shop, roastery, produk, dan kegiatan akan ditampilkan setelah tersedia." />
+    <x-public.page-hero eyebrow="Galeri" title="Ruang visual Kopi Drip." description="Ilustrasi editorial seputar biji kopi dan metode seduh." />
     <section class="section-space"><div class="site-container">
         @if ($galleryItems->isNotEmpty())
             <div class="gallery-grid">

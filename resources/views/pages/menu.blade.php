@@ -24,7 +24,7 @@
                 @endforeach
             </div>
         @else
-            <x-public.empty-state title="Menu belum tersedia" description="Informasi menu akan ditampilkan setelah dikonfirmasi dan dipublikasikan." />
+            <div class="flex flex-col items-center gap-5"><x-public.empty-state title="Tanyakan informasi menu" description="Hubungi Kopi Drip melalui halaman kontak untuk mengetahui informasi terbaru." /><a class="button button-dark" href="{{ route('contact') }}">Hubungi kami <span aria-hidden="true">↗</span></a></div>
         @endif
     </div></section>
 @endsection

@@ -4,7 +4,7 @@
 @section('seo_description', isset($category) ? ($category->seo_description ?: $category->description ?: '') : 'Jelajahi produk Kopi Drip Sidikalang yang telah dipublikasikan.')
 
 @section('content')
-    <x-public.page-hero eyebrow="Produk" :title="isset($category) ? $category->name : 'Pilihan dari Kopi Drip.'" :description="isset($category) ? $category->description : 'Daftar produk akan menampilkan informasi dan harga yang telah dipublikasikan.'" />
+    <x-public.page-hero eyebrow="Produk" :title="isset($category) ? $category->name : 'Pilihan dari Kopi Drip.'" :description="isset($category) ? $category->description : 'Tanyakan pilihan produk, harga, dan ketersediaan melalui halaman kontak.'" />
     <section class="section-space"><div class="site-container">
         @if ($categories->isNotEmpty())
             <nav class="mb-8 flex flex-wrap gap-3" aria-label="Kategori produk">
@@ -19,7 +19,7 @@
             </div>
             <div class="mt-12">{{ $products->links() }}</div>
         @else
-            <x-public.empty-state title="Belum ada produk untuk ditampilkan" description="Produk akan muncul di sini setelah dipublikasikan." />
+            <div class="flex flex-col items-center gap-5"><x-public.empty-state title="Tanyakan produk yang tersedia" description="Hubungi Kopi Drip melalui formulir kontak untuk mendapatkan informasi terbaru." /><a class="button button-dark" href="{{ route('contact') }}">Hubungi kami <span aria-hidden="true">↗</span></a></div>
         @endif
     </div></section>
 @endsection

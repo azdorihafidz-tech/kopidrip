@@ -60,7 +60,7 @@ class JournalPostResource extends CmsResource
             DateTimePicker::make('published_at')->label('Waktu terbit')->seconds(false),
             TextInput::make('seo_title')->label('Judul SEO')->maxLength(255),
             Textarea::make('seo_description')->label('Deskripsi SEO')->rows(3)->maxLength(320),
-            Toggle::make('is_demo')->label('Konten demonstrasi')->helperText('Konten demo ditandai dan tidak diindeks mesin pencari.'),
+            Toggle::make('is_demo')->label('Tahan dari indeks pencarian')->helperText('Aktifkan untuk mengecualikan tulisan dari sitemap dan hasil pencarian.'),
             CmsUpload::image('og_image', 'journal/og')->label('Gambar Open Graph'),
         ])->columns(2);
     }
@@ -72,7 +72,7 @@ class JournalPostResource extends CmsResource
             TextColumn::make('title')->label('Judul')->searchable()->sortable(),
             TextColumn::make('author_name')->label('Penulis')->searchable(),
             TextColumn::make('status')->label('Status')->badge()->color(fn (string $state): string => $state === 'published' ? 'success' : 'gray'),
-            TextColumn::make('is_demo')->label('Demo')->badge()->formatStateUsing(fn (bool $state) => $state ? 'DEMO' : 'Konten resmi')->color(fn (bool $state) => $state ? 'warning' : 'success'),
+            TextColumn::make('is_demo')->label('SEO')->badge()->formatStateUsing(fn (bool $state) => $state ? 'Tinjau dahulu' : 'Siap indeks')->color(fn (bool $state) => $state ? 'warning' : 'success'),
             TextColumn::make('published_at')->label('Waktu terbit')->dateTime()->sortable(),
             TextColumn::make('updated_at')->label('Diperbarui')->dateTime()->sortable(),
         ])->filters([SelectFilter::make('status')->options(['draft' => 'Draft', 'published' => 'Terbit'])]);

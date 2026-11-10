@@ -4,7 +4,7 @@
 @section('seo_robots', 'noindex,nofollow')
 @section('content')
 <section class="section-space"><div class="site-container grid max-w-5xl gap-12 lg:grid-cols-2">
-    <div><p class="eyebrow">Pemesanan</p><h1 class="mt-3 font-display text-4xl">Checkout</h1><p class="mt-4 text-muted">Demo checkout — payment integration will be enabled before production. Pesanan dibuat tanpa pembayaran online. Admin akan mengonfirmasi ongkos kirim dan total akhir sebelum pembayaran.</p>
+    <div><p class="eyebrow">Pemesanan</p><h1 class="mt-3 font-display text-4xl">Checkout</h1><p class="mt-4 text-muted">Pesanan dibuat tanpa pembayaran online. Admin akan mengonfirmasi ongkos kirim, total akhir, dan instruksi pembayaran sebelum Anda membayar.</p>
         <form class="mt-8 space-y-4" method="POST" action="{{ route('checkout.store') }}">@csrf
             @foreach (['name'=>'Nama penerima','email'=>'Email','phone'=>'Nomor telepon','address'=>'Alamat','city'=>'Kota/Kabupaten','province'=>'Provinsi','postal_code'=>'Kode pos'] as $field=>$label)
                 <div><label class="mb-1 block text-sm font-medium" for="{{ $field }}">{{ $label }}</label><input class="form-input w-full" id="{{ $field }}" name="{{ $field }}" value="{{ old($field) }}" @if ($field==='email') type="email" @elseif ($field==='phone') type="tel" @else type="text" @endif required maxlength="{{ $field==='address' ? 255 : 160 }}" autocomplete="{{ $field==='name' ? 'name' : ($field==='email' ? 'email' : ($field==='phone' ? 'tel' : 'off')) }}"></div>

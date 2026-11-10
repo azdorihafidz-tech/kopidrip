@@ -15,7 +15,7 @@ Website resmi dan fondasi toko online Kopi Drip Sidikalang. Aplikasi ini menyedi
 2. Jalankan `composer install` dan `npm install` dari root project.
 3. Salin `.env.example` ke `.env`, lalu jalankan `php artisan key:generate`.
 4. Atur `APP_ENV=local`, `APP_DEBUG=true`, `APP_URL=http://localhost/kopidrip`, serta `DB_*` pada `.env`. Buat database `kopidrip` jika belum ada. Jangan commit `.env`.
-5. Jalankan `php artisan migrate --seed` untuk membuat tabel, role/permission, dan konten demo berlabel.
+5. Jalankan `php artisan migrate --seed` untuk membuat tabel, role/permission, artikel edukasi, FAQ, galeri editorial, dan konten awal.
 6. Jalankan `php artisan storage:link` untuk menyediakan file publik dari `storage/app/public`.
 7. Jalankan `npm run build` untuk kompilasi asset, atau `npm run dev` saat mengembangkan frontend.
 8. Untuk XAMPP, aktifkan Apache `mod_rewrite` dan gunakan front controller lokal. Alternatifnya, jalankan `php artisan serve`.
@@ -27,7 +27,7 @@ Website resmi dan fondasi toko online Kopi Drip Sidikalang. Aplikasi ini menyedi
 - Buat akun melalui `php artisan make:filament-user`, lalu beri role melalui Tinker. Akun baru tidak otomatis memperoleh akses admin.
 - Role awal: `super-admin`, `admin`, dan `editor`. Akses toko/pelanggan/analitik diberikan kepada admin dan super-admin.
 
-Semua data contoh diberi label DEMO. Mode demo aktif otomatis saat konten demo dibuat, memasang `noindex` pada seluruh halaman, serta menghasilkan sitemap kosong. Setelah mengganti dan meninjau konten, admin dapat mematikan **Website masih dalam mode demo** pada Website Settings. Jangan menerbitkan alamat, harga, jam operasional, atau klaim yang belum disetujui pemilik.
+Konten awal berisi panduan umum tentang kopi dan ilustrasi editorial. Produk, menu, harga, alamat, nomor kontak, jam operasional, testimoni, dan promo hanya ditampilkan setelah informasinya dikonfirmasi melalui admin. Atur visibilitas mesin pencari di **Pengaturan website**.
 
 ## CMS, toko, dan keamanan
 
@@ -50,7 +50,7 @@ Periksa `git status` dan diff sebelum membuat perubahan. Jalankan tes dan build 
 
 ## Deployment
 
-Production belum di-deploy. `.cpanel.yml` sengaja belum dibuat sebelum path rilis, document root, dan perintah server cPanel ditetapkan. Catatan awal tersedia di `docs/deployment/cpanel.md`. Untuk production, letakkan source di luar document root jika hosting mengizinkan, arahkan web root ke folder `public`, siapkan environment/APP_KEY dan secret terpisah, build asset, tautkan storage, backup database, lalu jalankan migration secara terencana. Jangan jalankan seeder demo atau menyalin `.env` lokal ke production.
+Production menggunakan GitHub dan cPanel Git Version Control. Lihat `.cpanel.yml` serta `docs/deployment/cpanel.md` untuk alur deploy. Siapkan environment/APP_KEY dan secret terpisah, build asset, tautkan storage, backup database, lalu jalankan migration secara terencana. Jangan menyalin `.env` lokal ke production.
 
 ## Panduan project
 

@@ -172,7 +172,7 @@ class CartService
         }
 
         if ($product->is_demo) {
-            return 'Produk demo hanya untuk tampilan dan tidak dapat dipesan.';
+            return 'Produk ini belum tersedia untuk dipesan.';
         }
 
         if ($variantId && (! $variant || (int) $variant->product_id !== (int) $product->id)) {
